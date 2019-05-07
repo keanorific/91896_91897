@@ -9,7 +9,7 @@ def display_spiro():
     start()
 	
 def add_spiro():
-  name_of_spirolateral = int(input("What will be the name of this spirolateral?"))
+  name_of_spirolateral = str(input("What will be the name of this spirolateral?"))
   list_of_spirolaterals.append(name_of_spirolateral)
   dig_root_num = int(input("Input a number from 2-9"))
   loop_num = 1 
@@ -48,3 +48,4 @@ def start():
   menu() 
   
 start()
+
