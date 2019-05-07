@@ -19,7 +19,8 @@ def add_spiro():
       test = dig_root_num * loop_num
       spirolateral.append(digit_root(test)) 
       loop_num += 1  
-  
+
+
   start()
   
 def delete_spiro(): 
