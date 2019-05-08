@@ -15,7 +15,7 @@ def display_spiro():
 #Codes for the digital root, adding the digits together for numbers having double or more digits
 def digit_root(n): 
     return (n - 1) % 9 + 1 if n else 0
-#Adds
+#Adds a spirolateral and adds it to the list to be displayed or deleted
 def add_spiro():
   temp_entry_spirolateral = []
   name_of_spirolateral = str(input("What will be the name of this spirolateral? "))
@@ -24,23 +24,20 @@ def add_spiro():
       print (name_of_spirolateral, "already exists")
       break
   while True:
-    dig_root_num = input("Input a number from 2-9: ")
+    dig_root_num = input("Input an integer: ")
     try:
       dig_root_num = int(dig_root_num)
       break
     except:
-      print("Please enter an integer")
-
+      print("Please enter a integer")
+            
   temp_entry_spirolateral.append(name_of_spirolateral)
   loop_num = 1
   while True:
     spirolateral_number = dig_root_num * loop_num
-    print(temp_entry_spirolateral)
-    if (spirolateral_number in temp_entry_spirolateral):
-      print("Element found")
+    if digit_root(spirolateral_number) in temp_entry_spirolateral:
       break
     temp_entry_spirolateral.append(digit_root(spirolateral_number))
-    print(digit_root(spirolateral_number))
     loop_num += 1
 
   spirolateral.append(temp_entry_spirolateral)
@@ -80,3 +77,4 @@ def menu():
 display() 
 menu() 
   
+
