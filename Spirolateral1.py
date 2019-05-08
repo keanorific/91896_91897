@@ -1,29 +1,29 @@
-import turtle 
-name = "main"
 spirolateral = []
 list_of_spirolaterals = []
 
 def display_spiro():
-    
-    print (spirolateral)
-    start()
-	
+    ds = str(input("What spirolateral do you want to display?"))
+    if ds in list_of_spirolaterals:
+        print (list_of_spirolaterals[ds])
+
+def digit_root(n): 
+  return (n - 1) % 9 + 1 if n else 0
+
+
+   
 def add_spiro():
   name_of_spirolateral = str(input("What will be the name of this spirolateral?"))
   list_of_spirolaterals.append(name_of_spirolateral)
   dig_root_num = int(input("Input a number from 2-9"))
-  loop_num = 1 
-  def digit_root(n): 
-    return (n - 1) % 9 + 1 if n else 0 
-	
-  if name == "main": 
-    while loop_num < 10:
-      test = dig_root_num * loop_num
-      spirolateral.append(digit_root(test)) 
-      loop_num += 1  
-  
-  start()
-  
+  loop_num = 1
+  print("debug:2")
+  print("debug:3")
+  while loop_num < 10:
+    test = dig_root_num * loop_num
+    spirolateral.append(digit_root(test))
+    print("debug:4")
+    loop_num += 1  
+
 def delete_spiro(): 
   print ("") 
   
@@ -38,7 +38,8 @@ def menu():
     while choice != 4:
         if choice == 1: 
             display_spiro() 
-        if choice == 2: 
+        if choice == 2:
+            print("debug: 5")
             add_spiro() 
         if choice == 3:
             delete_spiro
@@ -48,4 +49,3 @@ def start():
   menu() 
   
 start()
-
