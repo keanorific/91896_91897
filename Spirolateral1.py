@@ -2,33 +2,38 @@ spirolateral = []
 list_of_spirolaterals = []
 
 def display_spiro():
-    ds = str(input("What spirolateral do you want to display?"))
-    if ds in list_of_spirolaterals:
-        print (list_of_spirolaterals[ds])
+  print("List of Spirolaterals to choose from:")
+  for i in range(len(spirolateral)):
+    print (spirolateral[i][0])
 
+  ds = str(input("What spirolateral do you want to display?"))
+  for i in range(len(spirolateral)):
+    if ds == spirolateral[i][0]:
+      print (spirolateral[i])
+      break
+    
 def digit_root(n): 
-  return (n - 1) % 9 + 1 if n else 0
-
-
-   
+    return (n - 1) % 9 + 1 if n else 0
+  
 def add_spiro():
+  temp_entry_spirolateral = []
   name_of_spirolateral = str(input("What will be the name of this spirolateral?"))
-  list_of_spirolaterals.append(name_of_spirolateral)
   dig_root_num = int(input("Input a number from 2-9"))
+  temp_entry_spirolateral.append(name_of_spirolateral)
   loop_num = 1
   while loop_num < 10:
     test = dig_root_num * loop_num
-    spirolateral.append(digit_root(test))
-    print(digit_root(test))
-    loop_num += 1  
+    temp_entry_spirolateral.append(digit_root(test))
+    loop_num += 1
 
-def delete_spiro(): 
-  del_spiro = str(input("Which spirolateral do you want to delete?"))
-  if del_spiro in list_of_spirolaterals:
-      list_of_spirolaterals.remove(del_spiro)
-      print(del_spiro, "has been deleted")
-  else:
-      print("There is no spirolateral called", del_spiro)
+  spirolateral.append(temp_entry_spirolateral)
+
+def delete_spiro():  
+  del_spiro=str(input("Which spirolateral do you want to delete?"))
+  for i in range(len(spirolateral)):
+    if del_spiro == spirolateral[i][0]:
+      spirolateral.pop(i)
+      break
   
 def display():
   global choice
@@ -39,16 +44,21 @@ def display():
   choice = int(input())
   
 def menu():
-    while choice != 4:
-        if choice == 1: 
-            display_spiro()
-            display()
-        if choice == 2:
-            add_spiro()
-            display()
-        if choice == 3:
-            delete_spiro()
-            display()
+    lower_limit = 1
+    upper_limit = 3
+    if choice > 1 or choice < 3:
+        while choice != 4:
+            if choice == 1: 
+                display_spiro()
+                display()
+            if choice == 2:
+                add_spiro()
+                display()
+            if choice == 3:
+                delete_spiro()
+                display()
+    else:
+        print("Invalid input")
             
 def start():
   display() 
