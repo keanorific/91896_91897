@@ -1,15 +1,14 @@
 #Starting lists that will be added to as the user adds more spirolaterals
 spirolateral = []
-list_of_spirolaterals = []
 #Displays the spirolaterals by asking the user which spirolateral they want to display then checking if that spirolateral exists in the array
 def display_spiro():
   print("List of Spirolaterals to choose from: ")
   for i in range(len(spirolateral)):
     print (spirolateral[i][0])
 
-  check_spiro = str(input("What spirolateral do you want to display? "))
+  checkSpiro = str(input("What spirolateral do you want to display? "))
   for i in range(len(spirolateral)):
-    if check_spiro == spirolateral[i][0]:
+    if checkSpiro == spirolateral[i][0]:
       print (spirolateral[i])
       break
 #Codes for the digital root, adding the digits together for numbers having double or more digits
@@ -17,43 +16,43 @@ def digit_root(n):
     return (n - 1) % 9 + 1 if n else 0
 #Adds a spirolateral and adds it to the list to be displayed or deleted
 def add_spiro():
-  temp_entry_spirolateral = []
-  name_of_spirolateral = str(input("What will be the name of this spirolateral? "))
+  spirolateralListEntry = []
+  spirolateralName = str(input("What will be the name of this spirolateral? "))
   for i in range(len(spirolateral)):
-    if name_of_spirolateral == spirolateral[i][0]:
-      print (name_of_spirolateral, "already exists")
+    if spirolateralName == spirolateral[i][0]:
+      print (spirolateralName, "already exists")
       break
   while True:
-    dig_root_num = input("Input an integer: ")
+    digitalRootNum = input("Input an integer: ")
     try:
-      dig_root_num = int(dig_root_num)
+      digitalRootNum = int(digitalRootNum)
       break
     except:
       print("Please enter a integer")
             
-  temp_entry_spirolateral.append(name_of_spirolateral)
-  loop_num = 1
+  spirolateralListEntry.append(spirolateralName)
+  loopNum = 1
   while True:
-    spirolateral_number = dig_root_num * loop_num
-    if digit_root(spirolateral_number) in temp_entry_spirolateral:
+    spirolateralListElement = digitalRootNum * loopNum
+    if digit_root(spirolateralListElement) in spirolateralListEntry:
       break
-    temp_entry_spirolateral.append(digit_root(spirolateral_number))
-    loop_num += 1
+    spirolateralListEntry.append(digit_root(spirolateralListElement))
+    loopNum += 1
 
-  spirolateral.append(temp_entry_spirolateral)
+  spirolateral.append(spirolateralListEntry)
 
 def delete_spiro():  
-  del_spiro=str(input("Which spirolateral do you want to delete? "))
+  deleteSpiro=str(input("Which spirolateral do you want to delete? "))
   for i in range(len(spirolateral)):
-    if del_spiro == spirolateral[i][0]:
+    if deleteSpiro == spirolateral[i][0]:
       spirolateral.pop(i)
       break
 
 #Shows the user the options and lets them input what option they want to do.
 def display():
   global choice
-  display_list = ["1 Display Spirolateral", "2 Add a Spirolateral", "3 Delete a Spirolateral", "4 Quit"] 
-  for x in display_list: 
+  displayList = ["1 Display Spirolateral", "2 Add a Spirolateral", "3 Delete a Spirolateral", "4 Quit"] 
+  for x in displayList: 
     print(x)
   choice = input("Input a number from 1-4: ")
   #Prevents a error by the user inputting letters and instead just asks the user again
