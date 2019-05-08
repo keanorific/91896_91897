@@ -23,7 +23,12 @@ def add_spiro():
     loop_num += 1  
 
 def delete_spiro(): 
-  print ("") 
+  del_spiro = str(input("Which spirolateral do you want to delete?"))
+  if del_spiro in list_of_spirolaterals:
+      list_of_spirolaterals.remove(del_spiro)
+      print(del_spiro, "has been deleted")
+  else:
+      print("There is no spirolateral called", del_spiro)
   
 def display():
   global choice
