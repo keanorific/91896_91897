@@ -16,33 +16,34 @@ def add_spiro():
   list_of_spirolaterals.append(name_of_spirolateral)
   dig_root_num = int(input("Input a number from 2-9"))
   loop_num = 1
-  print("debug:2")
-  print("debug:3")
   while loop_num < 10:
     test = dig_root_num * loop_num
     spirolateral.append(digit_root(test))
-    print("debug:4")
+    print(digit_root(test))
     loop_num += 1  
 
 def delete_spiro(): 
   print ("") 
   
-def display(): 
+def display():
+  global choice
   display_list = ["1 Display Spirolateral", "2 Add a Spirolateral", "3 Delete a Spirolateral", "4 Quit"] 
   for x in display_list: 
     print(x) 
-  print("Input a number from 1-4") 
+  print("Input a number from 1-4")
+  choice = int(input())
   
 def menu():
-    choice = int(input())
     while choice != 4:
         if choice == 1: 
-            display_spiro() 
+            display_spiro()
+            display()
         if choice == 2:
-            print("debug: 5")
-            add_spiro() 
+            add_spiro()
+            display()
         if choice == 3:
-            delete_spiro
+            delete_spiro()
+            display()
             
 def start():
   display() 
